@@ -1,0 +1,68 @@
+# 本地环境配置文件
+spring:
+  datasource:
+    druid:
+      first:  #数据源1
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.xa.DruidXADataSource
+        url: jdbc:mysql://localhost:3306/minhow_first?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&characterEncoding=utf8
+        username: root
+        password: root
+        #初始化时建立物理连接的个数
+        initial-size: 5
+        #池中最大连接数
+        max-active: 20
+        #最小空闲连接
+        min-idle: 1
+        #获取连接时最大等待时间，单位毫秒
+        max-wait: 60000
+        #有两个含义：
+        #1) Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接。
+        #2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
+        time-between-eviction-runs-millis: 60000
+        #连接保持空闲而不被驱逐的最小时间，单位是毫秒
+        min-evictable-idle-time-millis: 300000
+        #使用该SQL语句检查链接是否可用。如果validationQuery=null，testOnBorrow、testOnReturn、testWhileIdle都不会起作用。
+        validationQuery: SELECT 1 FROM DUAL
+        #建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+        test-while-idle: true
+        #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+        test-on-borrow: false
+        #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+        test-on-return: false
+        # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+        filters: stat,wall,slf4j
+        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      second: #数据源2
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.xa.DruidXADataSource
+        url: jdbc:mysql://localhost:3306/minhow_second?useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&characterEncoding=utf8
+        username: root
+        password: root
+        #初始化时建立物理连接的个数
+        initial-size: 5
+        #池中最大连接数
+        max-active: 20
+        #最小空闲连接
+        min-idle: 1
+        #获取连接时最大等待时间，单位毫秒
+        max-wait: 60000
+        #有两个含义：
+        #1) Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接。
+        #2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
+        time-between-eviction-runs-millis: 60000
+        #连接保持空闲而不被驱逐的最小时间，单位是毫秒
+        min-evictable-idle-time-millis: 300000
+        #使用该SQL语句检查链接是否可用。如果validationQuery=null，testOnBorrow、testOnReturn、testWhileIdle都不会起作用。
+        validationQuery: SELECT 1 FROM DUAL
+        #建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+        test-while-idle: true
+        #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+        test-on-borrow: false
+        #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+        test-on-return: false
+        # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+        filters: stat,wall,slf4j
+        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+        connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
