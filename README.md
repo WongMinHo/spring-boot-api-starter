@@ -1,6 +1,6 @@
-<p align="center">
-  <h2>Spring-Boot-Api-Starter</h2>
-</p>
+<h2 style="text-align:center">
+  Spring-Boot-Api-Starter
+</h2>
 
 <p align="center">  
   <a href="https://github.com/spring-projects/spring-boot">
