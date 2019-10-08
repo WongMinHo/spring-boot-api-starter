@@ -1,5 +1,5 @@
 <p align="center">
-  Spring-Boot-Api-Starter
+  <h2>Spring-Boot-Api-Starter</h2>
 </p>
 
 <p align="center">  
