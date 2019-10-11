@@ -1,5 +1,5 @@
 <p align="center" style="size: 25px">
-  <font size=10>Spring-Boot-Api-Starter</font>
+  Spring-Boot-Api-Starter
 </p>
 
 <p align="center">  
@@ -47,11 +47,48 @@ lombok | 1.18.10 | 注解生成Java Bean等工具 |
 
 ## 快速开始
 1. 克隆项目:`git clone https://github.com/WongMinHo/spring-boot-api-starter.git`
-2. 构建数据库，多数据源可以先创建两个数据库
+2. 构建数据库，多数据源可以先创建两个数据库，参考如下sql
 3. 对`test`包内的代码生成器`MysqlFirstGenerator`、`MysqlSecondGenerator`进行配置，修改对应的连接地址、包目录、作者等
 4. 输入表名，运行代码生成器，生成基础目录和代码结构，根据业务在基础代码上进行扩展
 5. 修改本地环境配置文件`application-local.yml`，启动项目
 
+### 创建两个数据库和数据表
+```sql
+#创建第一个数据库和数据表
+CREATE DATABASE minhow_first;
+-- ----------------------------
+-- Table structure for mh_user
+-- ----------------------------
+USE minhow_first;
+DROP TABLE IF EXISTS `mh_user`;
+CREATE TABLE `mh_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '姓名',
+  `password` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '密码',
+  `customer_num` int(11) DEFAULT '0' COMMENT '客户数',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of mh_user
+-- ----------------------------
+INSERT INTO `mh_user` VALUES (1, 'minhow', NULL, 0);
+
+#创建第二个数据库和数据表
+CREATE DATABASE minhow_second;
+-- ----------------------------
+-- Table structure for mh_customer
+-- ----------------------------
+USE minhow_second;
+DROP TABLE IF EXISTS `mh_customer`;
+CREATE TABLE `mh_customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL COMMENT '用户id',
+  `name` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '姓名',
+  `phone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '手机号',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+```
 
 ## 开发建议
 - 开发规范可以参考阿里巴巴Java开发手册（[最新版下载](https://github.com/alibaba/p3c))
