@@ -24,7 +24,7 @@
         <druid.version>1.1.20</druid.version>
         <jjwt.version>0.9.1</jjwt.version>
         <velocity-engine.version>2.0</velocity-engine.version>
-        <mysql-connector.version>8.0.11</mysql-connector.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
 
