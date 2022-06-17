@@ -20,7 +20,7 @@
         <mybatis-plus-generator.version>3.2.0</mybatis-plus-generator.version>
         <guava.version>27.1-jre</guava.version>
         <common-lang3.version>3.9</common-lang3.version>
-        <fastjson.version>1.2.60</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <druid.version>1.1.20</druid.version>
         <jjwt.version>0.9.1</jjwt.version>
         <velocity-engine.version>2.0</velocity-engine.version>
